@@ -13,7 +13,6 @@ export class LoginService{
         token_id
       });
 
-      console.log("hola");
       this.http.post<String>(`${this._urlServicio}/auth/login_google`, { headers })
         .subscribe( resp => {
           console.log('nombre enviado');

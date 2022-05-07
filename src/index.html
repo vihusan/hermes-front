@@ -21,23 +21,8 @@
 
 <body>
   <app-root></app-root>
-  <button onclick="mifuncion()">APIbyFetch - DEV</button>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script>
-      // function mifuncion(){
-      //   console.log("Welcome to mifunction");
-
-      //   const body = { id_token: "mipayload"};
-
-      //   fetch('http://localhost:8080/hermes/auth/login_google', {
-      //     method : "POST",
-      //     headers : {
-      //       'Content-Type' : 'application/json'
-      //     },
-      //     body : JSON.stringify(body)
-      //   });
-      // }
-
       function handleCredentialResponse(response) {
         const body = { id_token: response.credential};
 
@@ -47,12 +32,25 @@
             'Content-Type' : 'application/json'
           },
           body : JSON.stringify(body)
-        }).then( resp => resp.json() )
+        })
+          .then( resp => resp.json() )
           .then ( resp => {
             console.log(resp);
+            location.reload();
+            localStorage.setItem('email', resp.usuario.email);
           })
           .catch( console.warn );
       }
-  </script>
+
+      function singOut() {
+        console.log(google.accounts.id);
+        google.accounts.id.disableAutoSelect();
+        google.accounts.id.revoke( localStorage.getItem('email'), done => {
+          localStorage.clear();
+          location.reload();
+        });
+      }
+      
+      </script>
 </body>
 </html>
