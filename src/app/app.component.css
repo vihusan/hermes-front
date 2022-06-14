@@ -1,0 +1,22 @@
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url('src/assets/fonts/Montserrat/Montserrat-Regular.ttf') format("opentype");
+}
+
+.contenido{
+    display: flex;
+}
+.menu_sidebar {
+    display: grid;
+    grid-template-columns: 90% 10%;
+    min-width: 400px;
+    width: 25%;
+}
+
+.mapa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
