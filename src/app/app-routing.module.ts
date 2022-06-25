@@ -4,8 +4,13 @@ import { InicioSesionComponent } from './usuarios/pages/inicio-sesion/inicio-ses
 import { CrearUsuarioComponent } from './usuarios/pages/crear-usuario/crear-usuario.component';
 import { ActualizarUsuarioComponent } from './usuarios/pages/actualizar-usuario/actualizar-usuario.component';
 import { ListarUsuariosComponent } from './usuarios/pages/listar-usuarios/listar-usuarios.component';
+import { BuscarComponent } from './caminos/pages/buscar/buscar.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: BuscarComponent,
+  }, 
   {
     path: 'login',
     component: InicioSesionComponent,
@@ -22,6 +27,10 @@ const routes: Routes = [
     path: 'listarusuarios',
     component:  ListarUsuariosComponent
   }, 
+  {
+    path : 'buscarcamino',
+    component: BuscarComponent
+  }
 ]
 ;
 

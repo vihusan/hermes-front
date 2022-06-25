@@ -8,10 +8,13 @@ import { LoginModule } from './login/login.module';
 import { GoogleComponent } from './login/google/google.component';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { SharedModule } from './shared/shared.module';
+import { BuscarComponent } from './caminos/pages/buscar/buscar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BuscarComponent,
 
   ],
   imports: [
@@ -20,7 +23,8 @@ import { SharedModule } from './shared/shared.module';
     LoginModule,
     HttpClientModule,
     UsuariosModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

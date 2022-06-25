@@ -1,0 +1,33 @@
+<div id="doble_fondo">
+    <div id="container_camino">
+        <form [formGroup]="busquedaForm" (ngSubmit)="busqueda()">
+            <div class="login">
+                <div class="img_login"></div>
+            </div>
+    
+            <div class="item_form">
+                <label for="origen"> Origen </label>
+                <input type="text" id='origen' required formControlName='verticeOrigen'>
+            </div>
+    
+            <div class="item_form">
+                <label for="destino"> Destino </label>
+                <input type="text" id = 'detino' required formControlName='verticeDestino'>
+            </div>
+            
+            <div class = "boton_enviar">
+                <button type="submit" [disabled]='busquedaForm.invalid'>Generar camino</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- <pre>
+    Values:
+    {{ busquedaForm.value | json}}
+</pre>
+<pre>
+    Status: 
+    {{busquedaForm.status}}
+</pre> -->
