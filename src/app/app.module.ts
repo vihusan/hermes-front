@@ -10,7 +10,9 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { SharedModule } from './shared/shared.module';
 import { BuscarComponent } from './caminos/pages/buscar/buscar.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { AngularLineawesomeModule, LaIconLibrary } from 'angular-line-awesome';
+import { lasHippo, lasHeart, labAngular } from 'angular-line-awesome/icons';
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +26,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     UsuariosModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularLineawesomeModule,
   ],
-  providers: [],
+  providers: [ CookieService ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: LaIconLibrary) {
+    // Add an icon to the library for convenient access in other components
+    library.addIcons([lasHippo, lasHeart, labAngular]);
+  }
+}

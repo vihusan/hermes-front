@@ -1,41 +1,45 @@
-<nav class="row">
-    <div class="col menu_lateral">
-        <ul class="items_menu">
-            <li routerLink="buscarcamino" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
-                <i class="fa fa-map"></i>
-            </li>
-            <li routerLink="crearusuario" routerLinkActive="active">
-                <i class="fa fa-user-plus"></i>
-            </li>
-            <li routerLink="login" routerLinkActive="active">
-                <i class="fa fa-user"></i>
-            </li>
-        </ul>
-    </div>
-</nav>
+<ng-container #menu_view></ng-container>
 
-
-
-<!-- <nav id="navegacion_principal" class="row">
-    <div class="col">
-        <div id="logotipo_nav">
-            <div class="imagen">
-                <img src="./assets/logo_hermes.png" alt="">
-            </div>
+<ng-template #menu>
+    <nav class="row">
+        <div class="col menu_lateral">
+            <ul class="items_menu">
+                <li routerLink="buscarcamino" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
+                    <i class="fa-solid fa-route"></i>
+                </li>
+                <li routerLink="crearusuario" routerLinkActive="active">
+                    <i class="fa-solid fa-user-plus"></i>
+                </li>
+                <li routerLink="login" routerLinkActive="active">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </li>
+            </ul>
         </div>
-        <ul id="items_principal">
-            <li class="nav-item" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
-                Inicio
-            </li>
-            <li class="nav-item" routerLink="crearusuario" routerLinkActive="active">
-                Crear usuario
-            </li>
-            <li class="nav-item" routerLink="login" routerLinkActive="active">
-                Login
-            </li>
-        </ul>
-    </div>
-</nav> -->
+    </nav>
+</ng-template>
+
+
+<ng-template #menu_admin>
+    <nav class="row">
+        <div class="col menu_lateral">
+            <ul class="items_menu">
+                <li routerLink="buscarcamino" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
+                    <i class="fa-solid fa-user-shield"></i>
+                </li>
+                <li routerLink="buscarcamino" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </li>
+                <li routerLink="crearusuario" routerLinkActive="active">
+                    <i class="fa-solid fa-route"></i>
+                </li>
+                <li routerLink="login" (click)="logout()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</ng-template>
+
 
 
 
