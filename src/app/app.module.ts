@@ -17,7 +17,6 @@ import { CookieService } from 'ngx-cookie-service';
   declarations: [
     AppComponent,
     BuscarComponent,
-
   ],
   imports: [
     BrowserModule,

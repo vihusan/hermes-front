@@ -1,6 +1,4 @@
-<ng-container #menu_view></ng-container>
-
-<ng-template #menu>
+<ng-container *ngIf="_htoken == null; else menu_admin">
     <nav class="row">
         <div class="col menu_lateral">
             <ul class="items_menu">
@@ -16,14 +14,13 @@
             </ul>
         </div>
     </nav>
-</ng-template>
-
+</ng-container>
 
 <ng-template #menu_admin>
     <nav class="row">
         <div class="col menu_lateral">
             <ul class="items_menu">
-                <li routerLink="buscarcamino" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
+                <li routerLink="perfil" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
                     <i class="fa-solid fa-user-shield"></i>
                 </li>
                 <li routerLink="buscarcamino" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">

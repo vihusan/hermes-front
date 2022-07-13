@@ -11,7 +11,8 @@ export class BuscarComponent{
     verticeOrigen: new FormControl(''),
     verticeDestino: new FormControl('')
   });
+  
   busqueda() : void{
-    console.log("form -> ", JSON.stringify(this.busquedaForm.value));
+    console.log("Voy a buscar: ", JSON.stringify(this.busquedaForm.value));
   }
 }

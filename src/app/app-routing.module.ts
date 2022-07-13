@@ -5,6 +5,7 @@ import { CrearUsuarioComponent } from './usuarios/pages/crear-usuario/crear-usua
 import { ActualizarUsuarioComponent } from './usuarios/pages/actualizar-usuario/actualizar-usuario.component';
 import { ListarUsuariosComponent } from './usuarios/pages/listar-usuarios/listar-usuarios.component';
 import { BuscarComponent } from './caminos/pages/buscar/buscar.component';
+import { PerfilComponent } from './usuarios/pages/perfil/perfil.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path : 'buscarcamino',
     component: BuscarComponent
+  },
+  {
+    path:  'perfil',
+    component:  PerfilComponent
   }
 ]
 ;

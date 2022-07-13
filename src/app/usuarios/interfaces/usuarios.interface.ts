@@ -7,7 +7,8 @@ export interface GetUsuariosResponses {
 export interface PostUsuariosResponses {
     ok: Boolean,
     usuario: String [],
-    errors: Object[]
+    errors: Object[],
+    token : String
 }
 
 export interface GetLoginResponses {
