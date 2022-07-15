@@ -4,13 +4,13 @@
 }
 
 .contenido{
-    display: flex;
+    display: grid;
+    grid-template-columns: 450px auto;
 }
+
 .menu_sidebar {
     display: grid;
-    grid-template-columns: 90% 10%;
-    min-width: 400px;
-    width: 25%;
+    grid-template-columns: repeat(2, auto);
 }
 
 .mapa {
@@ -18,5 +18,4 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 100%;
 }

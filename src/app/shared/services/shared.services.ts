@@ -20,10 +20,4 @@ export class SharedServices {
     setMenuView(menuView : ViewContainerRef) : void{
         this.menuView = menuView;
     }
-
-    // cambioMenu(): void {
-    //     let sesion  = localStorage.getItem('htoken');
-    //     if(sesion) this.menuView.createEmbeddedView(this.menuAdmin);
-    //     else this.menuView.createEmbeddedView(this.menu);
-    // }
 }

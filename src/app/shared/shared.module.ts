@@ -3,28 +3,26 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { AngularLineawesomeModule, LaIconLibrary } from 'angular-line-awesome';
-import { lasHippo, lasHeart, labAngular } from 'angular-line-awesome/icons';
-
-
+import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
+import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 @NgModule({
   declarations: [
     MenuComponent,
     SidebarComponent,
+    SidebarMenuComponent,
+    MenuAdminComponent
   ],
   exports : [
     MenuComponent,
-    SidebarComponent
+    SidebarComponent,
+    SidebarMenuComponent,
+    MenuAdminComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
-    AngularLineawesomeModule,
   ]
 })
 export class SharedModule {
-  constructor(library: LaIconLibrary) {
-    // Add an icon to the library for convenient access in other components
-    library.addIcons([lasHippo, lasHeart, labAngular]);
-  }
+
 }

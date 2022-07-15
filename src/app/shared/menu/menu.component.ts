@@ -1,6 +1,11 @@
-import { AfterContentInit, AfterViewInit, Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+/**
+ * Autor: Victor Hugo Sánchez Calderón
+ * Fecha: 13 Julio 2022
+ * Descripción: Administración de menús
+ */
+
+import { AfterContentInit, Component, } from '@angular/core';
 import { UsuariosService } from 'src/app/usuarios/services/usuarios.service';
-import { SharedServices } from '../services/shared.services';
 
 @Component({
   selector: 'app-menu',

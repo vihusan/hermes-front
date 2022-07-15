@@ -1,0 +1,19 @@
+<!-- Menu administrador  -->
+<nav class="conatainer_menu">
+    <div class="menu_lateral">
+        <ul class="items_menu">
+            <li routerLink="perfil" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
+                <i class="fa-solid fa-user-shield"></i>
+            </li>
+            <li [routerLink] = "['/buscarcamino']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
+                <i class="fa-solid fa-map-location-dot"></i>
+            </li>
+            <li [routerLink]="['/login']" routerLinkActive="active">
+                <i class="fa-solid fa-route"></i>
+            </li>
+            <li (ngSubmit)= "salida()">
+                <i class="fa-solid fa-person-walking-arrow-loop-left"></i>
+            </li>
+        </ul>
+    </div>
+</nav>
