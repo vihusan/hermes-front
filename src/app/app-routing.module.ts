@@ -12,14 +12,16 @@ import { PerfilComponent } from './usuarios/pages/perfil/perfil.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { MenuAdminComponent } from './shared/menu-admin/menu-admin.component';
 
+const mitoken = localStorage.getItem('htoken')
+
 const routes: Routes = [
   {
     path: '',
-    component: BuscarComponent,
+    component: mitoken == null ? BuscarComponent : CrearUsuarioComponent,
   },
   {
     path : '',
-    component: MenuComponent,
+    component: mitoken == null ? MenuComponent : MenuAdminComponent,
     outlet: 'menulateral'
   }, 
   {
@@ -43,6 +45,11 @@ const routes: Routes = [
     component: BuscarComponent
   },
   {
+    path : 'buscarcamino',
+    component: MenuComponent,
+    outlet: 'menulateral'
+  },
+  {
     path:  'perfil',
     component:  PerfilComponent
   },
@@ -51,8 +58,7 @@ const routes: Routes = [
     component: MenuAdminComponent,
     outlet: 'menulateral'
   }
-]
-;
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

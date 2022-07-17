@@ -13,6 +13,6 @@ export class MenuAdminComponent  {
 
   salida() : void {
     console.log("estamos saliendo del sistema .. ");
-    //this.usuarioService.logout();
+    this.usuarioService.logout();
   }
 }

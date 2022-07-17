@@ -1,0 +1,37 @@
+#container_perfil{
+    height: 100vh;
+    width: 400px;
+    padding: 0px;
+    border: 1px solid #172045;
+    border-radius: 0px 5px 5px 0px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.datos_usuario{
+    width: 400px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    row-gap: 10px;
+}
+
+.datos_usuario .image_user{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: linear-gradient(45deg,red,rgb(174, 120, 28),green,rgb(53, 73, 187));
+	background-size: 400% 400%;
+	position: relative;
+	animation: cambiar 7s ease-in-out infinite;
+    margin: auto;
+    margin-bottom: 60px;
+}
+
+@keyframes cambiar{
+    0%{background-position: 0 30%;}
+    50%{background-position: 90% 30%;}
+    100%{background-position: 0 30%;}
+}

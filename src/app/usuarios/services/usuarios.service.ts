@@ -5,7 +5,7 @@
  */
 
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { GetLoginResponses, PostUsuariosResponses } from '../interfaces/usuarios.interface';
+import { GetLoginResponses, GetUsuariosResponses, HermesUser } from '../interfaces/usuarios.interface';
 import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,9 +15,19 @@ import { Router } from '@angular/router';
 })
 export class UsuariosService {
     private _servicioUrl: string = "http://localhost:8080/hermes";
-    
+    private usuarioActual: HermesUser = {  
+        nombre :  "",
+        email  :  "",
+        role   :  "",
+        estado :  "",
+        google :  "",
+        uid    :  ""
+    };
+
+
+
     constructor ( private http: HttpClient, 
-        private router: Router) {}
+                  private router: Router) {}
 
     /**
      * 
@@ -30,23 +40,21 @@ export class UsuariosService {
             .append('password', loginForm.value.password);
 
         this.http.get<GetLoginResponses>(`${this._servicioUrl}/auth/login`, {headers : paramLogin})
-        .subscribe( resp => {
+        .subscribe( resp => {   
             if(resp.token) {
-                console.log("Tengo informacion para entrar");
+                this.setId(resp.data.uid);
                 this.setToken(resp.token);
                 this.router.navigateByUrl('/perfil(menulateral:perfil)');
             }
-
-            console.log("No tengo informacion ")
         });
     }
 
     /**
      * 
-     * @param token para iniciar sesion
+     * @param token 
      * Login al sistema, al crear un usuario
      */
-    loginCreateUser(token : String) :void {
+    loginCreateUser(token : string) :void {
         this.setToken(token);
         this.router.navigateByUrl('/perfil');
         window.location.reload();
@@ -56,21 +64,102 @@ export class UsuariosService {
      * Salida del sistema
      */
     logout() : void{
+        console.log("Ahora si estamos saliendo ");
         localStorage.removeItem('htoken');
-        this.router.navigateByUrl('/buscarcamino(menulateral:perfil)');
+        localStorage.removeItem('hid')
+        this.router.navigateByUrl('/buscarcamino(menulateral:buscarcamino)');
     }
 
     /**
      * Asigna token del localstorage
      */
-    setToken(token : String) : void{
-        localStorage.setItem('htoken', JSON.stringify(token));
+    setToken(token : string) : void{
+        localStorage.setItem('htoken', token);
+    }
+
+
+    /**
+     * Obtine token del localstorage
+     */
+     getToken() : string{
+        return localStorage.getItem('htoken');
     }
 
     /**
-     * Obbtine token del localstorage
+     * Asigna uid a localstorage
      */
-    getToken() : String{
-        return localStorage.getItem('htoken');
+    setId(id : string) : void{
+        localStorage.setItem('hid', id);
     }
+
+    /**
+     * Obtine uid del localstorage
+     */
+     getId() : string{
+        return localStorage.getItem('hid');
+    }
+
+    /**
+     * Asigna uid a localstorage
+     */
+    setUser(usuarioActual : HermesUser) : void{
+        this.usuarioActual = usuarioActual;
+    }
+
+    /**
+     * Obtine uid del localstorage
+     */
+    getUser() : HermesUser{
+        return this.usuarioActual;
+    }
+
+    /**
+     * Obtener el usuario logeado para usar el sistema
+     */
+    obtenerPerfil() : Promise<Boolean>{
+        return new Promise((resolve, reject) => {
+            // const usuarioAux = {
+            //     nombre :  "nombre_generico",
+            //     email  :  "email_generico",
+            //     role   :  "role_generico",
+            //     estado :  "estado_generico",
+            //     google :  "google_generico",
+            //     uid    :  "uid_generico"
+            // }
+            
+            // const usuarioAux = null;
+
+            // setTimeout(()=>{
+            //     if (usuarioAux) {
+            //         this.setUser(usuarioAux);
+            //         resolve(true);
+            //     } else {
+            //         reject({
+            //             msg: "erees una mamada"
+            //         });
+            //     }
+            // },  5000);
+
+            const token:string = this.getToken();
+            const id:string = this.getId();
+    
+            if(token){
+                const headerParam = new HttpHeaders()
+                .append('xtoken', token)
+                .append('id', id);
+    
+                this.http.get<GetUsuariosResponses>(`${this._servicioUrl}/usuarios`, {headers : headerParam})
+                .subscribe( resp => {
+                    if(resp.usuario) {
+                        this.setUser(resp.usuario);
+                        this.router.navigateByUrl('perfil(menulateral:perfil)');
+                        resolve(true);
+                    }
+                });
+            }else{
+                reject(false);
+            }
+        });
+    }
+
 }
