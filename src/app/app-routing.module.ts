@@ -11,6 +11,9 @@ import { BuscarComponent } from './caminos/pages/buscar/buscar.component';
 import { PerfilComponent } from './usuarios/pages/perfil/perfil.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { MenuAdminComponent } from './shared/menu-admin/menu-admin.component';
+import { HomeVerticeComponent } from './vertices/pages/home-vertice/home-vertice.component';
+import { ListadoComponent } from './vertices/pages/listado/listado.component';
+import { CrearVerticeComponent } from './vertices/pages/crear-vertice/crear-vertice.component';
 
 const mitoken = localStorage.getItem('htoken')
 
@@ -57,7 +60,21 @@ const routes: Routes = [
     path : 'perfil',
     component: MenuAdminComponent,
     outlet: 'menulateral'
-  }
+  },
+  {
+    path : "vertices",
+    component: HomeVerticeComponent,
+    children : [
+      {
+        path: "listado",
+        component: ListadoComponent,
+      },
+      {
+        path : "crear",
+        component : CrearVerticeComponent,
+      }
+    ]
+  },
 ];
 
 @NgModule({

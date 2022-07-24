@@ -118,28 +118,6 @@ export class UsuariosService {
      */
     obtenerPerfil() : Promise<Boolean>{
         return new Promise((resolve, reject) => {
-            // const usuarioAux = {
-            //     nombre :  "nombre_generico",
-            //     email  :  "email_generico",
-            //     role   :  "role_generico",
-            //     estado :  "estado_generico",
-            //     google :  "google_generico",
-            //     uid    :  "uid_generico"
-            // }
-            
-            // const usuarioAux = null;
-
-            // setTimeout(()=>{
-            //     if (usuarioAux) {
-            //         this.setUser(usuarioAux);
-            //         resolve(true);
-            //     } else {
-            //         reject({
-            //             msg: "erees una mamada"
-            //         });
-            //     }
-            // },  5000);
-
             const token:string = this.getToken();
             const id:string = this.getId();
     

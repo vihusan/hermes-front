@@ -1,0 +1,36 @@
+<div id="doble_fondo">
+    <div id="container_crear_vertice">
+        <form [formGroup]="crearVerticeForm" (ngSubmit)="crearVertice()">
+            <div class="titulo">
+                <h3> Crear vertice</h3>
+            </div>
+    
+            <div class="item_form">
+                <label for="longitud_vertice"> Longitud </label>
+                <input type="text" id = 'longitud_vertice' required formControlName="longitud">
+            </div>
+    
+            <div class="item_form">
+                <label for="latitud_vertice"> Latitud </label>
+                <input type="text" id = 'latitud_vertice' required formControlName="latitud">
+            </div>
+        
+            <div class="item_form">
+                <label for="tipo_vertice"> Tipo Vertice</label>
+                <select name="tipovertice" id = 'tipo_vertice' required formControlName="tipoVertice">
+                    <option *ngFor="let item of listadoTipoVertices ">
+                        {{ item.tipo }}
+                    </option>
+                </select>
+            </div>
+    
+            <div class = "boton_enviar">
+                <button type="submit" autocomplete="off" [disabled]="crearVerticeForm.invalid">Crear vertice</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<pre>
+    {{ crearVerticeForm.value | json}}
+</pre>

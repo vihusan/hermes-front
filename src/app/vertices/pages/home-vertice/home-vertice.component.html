@@ -1,0 +1,17 @@
+<div id="doble_fondo">
+    <div id="container_home_vertices">
+        <nav class="navegacion_vertices">
+            <ul>
+                <li [routerLink] = "['/vertices/listado']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true }">
+                    Vertices
+                </li>
+                <li [routerLink] = "['/vertices/crear']">
+                    Crear Vertice
+                </li>
+            </ul>
+        </nav>
+        <div class="contenido_vertices">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

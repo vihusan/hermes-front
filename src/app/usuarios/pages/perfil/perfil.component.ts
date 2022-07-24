@@ -13,7 +13,7 @@ export class PerfilComponent implements OnInit {
   
   constructor(private usuarioService : UsuariosService) { }
 
-  async ngOnInit(): Promise<void>{
+  async ngOnInit(): Promise<void> {
     const usuarioPromise  = await this.usuarioService.obtenerPerfil();
     if (usuarioPromise == true) {
       const usuario : HermesUser = this.usuarioService.getUser();

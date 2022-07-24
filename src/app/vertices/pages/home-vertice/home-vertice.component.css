@@ -1,0 +1,49 @@
+#container_home_vertices{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80px auto;
+    justify-content: center;
+    color: #090909;
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    background-color: rgba(226, 209, 209, 0.7);
+}
+
+#doble_fondo{
+    height: 100vh;
+    width: 100%;
+    background-image: url('src/assets/img/fondos/crear_usuario.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: start;
+    background-position-y: center;
+    border: 1px solid #090909;
+}
+
+#container_home_vertices .navegacion_vertices {
+    background-color: #1e2828;
+    color: white;
+
+}
+#container_home_vertices .navegacion_vertices ul{
+    display: flex;
+    margin: 0px;
+    padding: 0px; 
+}
+#container_home_vertices .navegacion_vertices ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 80px;
+    width: 120px;
+}
+
+#container_home_vertices .navegacion_vertices ul li:hover{
+   background-color: #3e5252;
+}
+
+.contenido_vertices{
+    background-color: white;
+}
